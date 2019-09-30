@@ -440,6 +440,22 @@ impl ClientBuilder {
         };
         self
     }
+
+    /// Sets the `SETTINGS_INITIAL_WINDOW_SIZE` option for HTTP2 stream-level flow control.
+    ///
+    /// Default is currently 65,535 but may change internally to optimize for common uses.
+    pub fn http2_initial_stream_window_size(mut self, sz: impl Into<Option<u32>>) -> ClientBuilder {
+        self.config.http_builder.http2_initial_stream_window_size(sz);
+        self
+    }
+
+    /// Sets the max connection-level flow control for HTTP2
+    ///
+    /// Default is currently 65,535 but may change internally to optimize for common uses.
+    pub fn http2_initial_connection_window_size(mut self, sz: impl Into<Option<u32>>) -> ClientBuilder {
+        self.config.http_builder.http2_initial_connection_window_size(sz);
+        self
+    }
 }
 
 type HyperClient = ::hyper::Client<Connector>;
