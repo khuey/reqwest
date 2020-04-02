@@ -437,7 +437,7 @@ pub(crate) fn replace_headers(dst: &mut HeaderMap, src: HeaderMap) {
 /// Check the request URL for a "username:password" type authority, and if
 /// found, remove it from the URL and return it.
 pub(crate) fn extract_authority(url: &mut Url) -> Option<(String, Option<String>)> {
-    use url::percent_encoding::percent_decode;
+    use percent_encoding::percent_decode;
 
     if url.has_authority() {
         let username: String = percent_decode(url.username().as_bytes())

@@ -193,6 +193,7 @@ extern crate mime;
 extern crate mime_guess;
 #[cfg(feature = "default-tls")]
 extern crate native_tls;
+extern crate percent_encoding;
 extern crate serde;
 extern crate serde_json;
 extern crate serde_urlencoded;
